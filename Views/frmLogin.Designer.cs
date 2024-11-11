@@ -102,7 +102,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.MediumAquamarine;
+            BackColor = Color.FromArgb(255, 128, 128);
             ClientSize = new Size(420, 226);
             Controls.Add(btnCadastro);
             Controls.Add(btnLogin);

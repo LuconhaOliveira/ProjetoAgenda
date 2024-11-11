@@ -19,7 +19,7 @@ namespace ProjetoAgenda.Views
 
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddCtg frmAddCtg = new frmAddCtg();
+            frmCategoria frmAddCtg = new frmCategoria();
             frmAddCtg.Show();
         }
 

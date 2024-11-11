@@ -45,10 +45,10 @@
             // lblNome
             // 
             lblNome.AutoSize = true;
-            lblNome.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNome.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
             lblNome.Location = new Point(35, 26);
             lblNome.Name = "lblNome";
-            lblNome.Size = new Size(59, 18);
+            lblNome.Size = new Size(52, 23);
             lblNome.TabIndex = 1;
             lblNome.Text = "Nome";
             // 
@@ -73,10 +73,10 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
-            lblUsuario.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUsuario.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
             lblUsuario.Location = new Point(35, 82);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(75, 18);
+            lblUsuario.Size = new Size(67, 23);
             lblUsuario.TabIndex = 3;
             lblUsuario.Text = "Usuário";
             // 
@@ -92,10 +92,10 @@
             // lblTelefone
             // 
             lblTelefone.AutoSize = true;
-            lblTelefone.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTelefone.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
             lblTelefone.Location = new Point(35, 140);
             lblTelefone.Name = "lblTelefone";
-            lblTelefone.Size = new Size(86, 18);
+            lblTelefone.Size = new Size(76, 23);
             lblTelefone.TabIndex = 5;
             lblTelefone.Text = "Telefone";
             // 
@@ -111,10 +111,10 @@
             // lblConfirm
             // 
             lblConfirm.AutoSize = true;
-            lblConfirm.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblConfirm.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
             lblConfirm.Location = new Point(35, 251);
             lblConfirm.Name = "lblConfirm";
-            lblConfirm.Size = new Size(162, 18);
+            lblConfirm.Size = new Size(143, 23);
             lblConfirm.TabIndex = 7;
             lblConfirm.Text = "Confirme a senha";
             // 
@@ -130,16 +130,17 @@
             // lblSenha
             // 
             lblSenha.AutoSize = true;
-            lblSenha.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSenha.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
             lblSenha.Location = new Point(35, 194);
             lblSenha.Name = "lblSenha";
-            lblSenha.Size = new Size(63, 18);
+            lblSenha.Size = new Size(56, 23);
             lblSenha.TabIndex = 9;
             lblSenha.Text = "Senha";
             // 
             // btnCadastrar
             // 
             btnCadastrar.Enabled = false;
+            btnCadastrar.Font = new Font("Comic Sans MS", 9F);
             btnCadastrar.Location = new Point(35, 322);
             btnCadastrar.Margin = new Padding(3, 2, 3, 2);
             btnCadastrar.Name = "btnCadastrar";
@@ -151,6 +152,7 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Font = new Font("Comic Sans MS", 9F);
             btnCancelar.Location = new Point(207, 322);
             btnCancelar.Margin = new Padding(3, 2, 3, 2);
             btnCancelar.Name = "btnCancelar";
@@ -164,7 +166,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightSteelBlue;
+            BackColor = Color.FromArgb(255, 192, 255);
             ClientSize = new Size(420, 412);
             Controls.Add(btnCancelar);
             Controls.Add(btnCadastrar);
