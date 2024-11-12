@@ -80,5 +80,42 @@ namespace ProjetoAgenda.Controllers
             }
             
         }
+
+        public bool RemoveCategorias(int id)
+        {
+            MySqlConnection conexao = null;
+
+            try
+            {
+                // Entrar e criar a conexao no SQL, inserindo o comando previsto na variavel sql
+                conexao = ConexaoDb.CriarConexao();
+
+                string sql = "DELETE FROM tbcategorias WHERE id=@id;";
+
+                conexao.Open();
+
+                // adicionando os parametros e executando
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@id", id);
+
+                // vendo a quantidade afetada e vendo se foi feito com sucesso ou nao
+                int quantidadeAfetada = comando.ExecuteNonQuery();
+
+                return true;
+
+            }
+            catch (Exception erro)
+            {
+                // se der erro mostra tlg
+                MessageBox.Show($"Erro ao remover categoria: {erro.Message}");
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
     }
 }

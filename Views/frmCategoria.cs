@@ -17,6 +17,11 @@ namespace ProjetoAgenda.Views
         public frmCategoria()
         {
             InitializeComponent();
+            atualizaDataGrid();
+        }
+
+        private void atualizaDataGrid()
+        {
             dgvTabela.DataSource = categoriaController.GetCategorias();
         }
 
@@ -26,17 +31,24 @@ namespace ProjetoAgenda.Views
 
             bool resultado = categoriaController.AddCategoria(categoria);
 
-            if(resultado==false)
+            if (resultado == false)
             {
                 MessageBox.Show("Não foi possível realizar o cadastro");
             }
 
-            dgvTabela.DataSource = categoriaController.GetCategorias();
+            atualizaDataGrid();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDeleta_Click(object sender, EventArgs e)
+        {
+            int deletar = Convert.ToInt32(dgvTabela.SelectedRows[0].Cells[0].Value);
+            categoriaController.RemoveCategorias(deletar);
+            atualizaDataGrid();
         }
     }
 }

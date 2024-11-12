@@ -2,9 +2,11 @@
 using ProjetoAgenda.Data;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ProjetoAgenda.Controllers
 {
@@ -90,5 +92,112 @@ namespace ProjetoAgenda.Controllers
                 return false;
             }
         }
+
+        public DataTable GetUsers()
+        {
+            MySqlConnection conexao = null;
+
+            try
+            {
+                DataTable tabela = new DataTable();
+                conexao = ConexaoDb.CriarConexao();
+
+                conexao.Open();
+
+                string sql = @"SELECT nome AS 'Nome', 
+                            usuario AS 'Úsuario' ,
+                            telefone AS 'Telefone'
+                            FROM tbUsuarios;";
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conexao);
+
+                adapter.Fill(tabela);
+
+                return tabela;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao recuperar úsuarios: {erro.Message}");
+                return new DataTable();
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+        public bool RemoveUser(string username)
+        {
+            MySqlConnection conexao = null;
+
+            try
+            {
+                // Entrar e criar a conexao no SQL, inserindo o comando previsto na variavel sql
+                conexao = ConexaoDb.CriarConexao();
+
+                string sql = "DELETE FROM tbusuario WHERE usuario=@usuario;";
+
+                conexao.Open();
+
+                // adicionando os parametros e executando
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@usuario", username);
+
+                // vendo a quantidade afetada e vendo se foi feito com sucesso ou nao
+                int quantidadeAfetada = comando.ExecuteNonQuery();
+
+                return true;
+
+            }
+            catch (Exception erro)
+            {
+                // se der erro mostra tlg
+                MessageBox.Show($"Erro ao remover úsuario: {erro.Message}");
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+        public bool ModifyPass(string username, string senha)
+        {
+            MySqlConnection conexao = null;
+
+            try
+            {
+                // Entrar e criar a conexao no SQL, inserindo o comando previsto na variavel sql
+                conexao = ConexaoDb.CriarConexao();
+
+                string sql = "UPDATE tbusuarios SET senha=@senha WHERE usuario=@usuario;";
+
+                conexao.Open();
+
+                // adicionando os parametros e executando
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@usuario", username);
+                comando.Parameters.AddWithValue("@senha", senha);
+
+                // vendo a quantidade afetada e vendo se foi feito com sucesso ou nao
+                int quantidadeAfetada = comando.ExecuteNonQuery();
+
+                return true;
+
+            }
+            catch (Exception erro)
+            {
+                // se der erro mostra tlg
+                MessageBox.Show($"Erro ao alterar a senha do úsuario: {erro.Message}");
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
     }
 }
