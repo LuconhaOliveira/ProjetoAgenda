@@ -162,7 +162,7 @@ namespace ProjetoAgenda.Controllers
             }
         }
 
-        public bool ModifyPass(string username, string senha)
+        public bool ModifyData(string username, string firstData, string newData)
         {
             MySqlConnection conexao = null;
 
@@ -171,7 +171,7 @@ namespace ProjetoAgenda.Controllers
                 // Entrar e criar a conexao no SQL, inserindo o comando previsto na variavel sql
                 conexao = ConexaoDb.CriarConexao();
 
-                string sql = "UPDATE tbusuarios SET senha=@senha WHERE usuario=@usuario;";
+                string sql = "UPDATE tbusuarios SET @first=@new WHERE usuario=@usuario;";
 
                 conexao.Open();
 
@@ -179,7 +179,8 @@ namespace ProjetoAgenda.Controllers
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
                 comando.Parameters.AddWithValue("@usuario", username);
-                comando.Parameters.AddWithValue("@senha", senha);
+                comando.Parameters.AddWithValue("@first", firstData);
+                comando.Parameters.AddWithValue("@new", newData);
 
                 // vendo a quantidade afetada e vendo se foi feito com sucesso ou nao
                 int quantidadeAfetada = comando.ExecuteNonQuery();
@@ -198,6 +199,5 @@ namespace ProjetoAgenda.Controllers
                 conexao.Close();
             }
         }
-
     }
 }

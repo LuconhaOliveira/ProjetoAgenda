@@ -37,7 +37,23 @@ namespace ProjetoAgenda.Views
         {
             string user = Convert.ToString(dgvUsers.SelectedRows[0].Cells[0].Value);
             string senha = tbxSenha.Text;
-            controller.ModifyPass(user,senha);
+            controller.ModifyData(user, "senha", senha);
+            atualizaDataGrid();
+        }
+
+        private void btnNome_Click(object sender, EventArgs e)
+        {
+            string user = Convert.ToString(dgvUsers.SelectedRows[0].Cells[0].Value);
+            string nome = tbxNome.Text;
+            controller.ModifyData(user, "nome", nome);
+            atualizaDataGrid();
+        }
+
+        private void btnTel_Click(object sender, EventArgs e)
+        {
+            string user = Convert.ToString(dgvUsers.SelectedRows[0].Cells[0].Value);
+            string Telefone = tbxTel.Text;
+            controller.ModifyData(user, "telefone", Telefone);
             atualizaDataGrid();
         }
     }
