@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -12,6 +13,7 @@ namespace ProjetoAgenda.Controllers
 {
     internal class UserController
     {
+        
         public bool AddUser(string nome, string usuario, string telefone, string senha)
         {
             try
@@ -21,11 +23,26 @@ namespace ProjetoAgenda.Controllers
                 MySqlConnection conexao = ConexaoDb.CriarConexao();
 
                 //inserir dados na tabela do sql
-                string sql = "INSERT INTO tbUsuarios(nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);";
+                
 
                 conexao.Open();
-
+                
+                string sql = $"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';";
+                
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.ExecuteNonQuery();
+
+                sql = $"GRANT SELECT, INSERT, DELETE, UPDATE ON dbagenda.* TO '{usuario}'@'%';";
+
+                comando = new MySqlCommand(sql , conexao);
+
+                comando.ExecuteNonQuery();
+
+
+                sql = "INSERT INTO tbUsuarios(nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);";
+
+                comando = new MySqlCommand(sql, conexao);
 
                 // definindo os parametros inseridos
                 comando.Parameters.AddWithValue("@nome", nome);
@@ -77,6 +94,8 @@ namespace ProjetoAgenda.Controllers
                 if(resultado.Read())
                 {
                     conexao.Close();
+                    ConexaoDb.user = usuario;
+                    ConexaoDb.senha = senha;
                     return true;
                 }
                 else
