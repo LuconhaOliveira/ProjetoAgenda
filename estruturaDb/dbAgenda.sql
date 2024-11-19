@@ -11,5 +11,16 @@ CREATE TABLE IF NOT EXISTS tbUsuarios(
 
 CREATE TABLE IF NOT EXISTS tbCategorias(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-    categoria VARCHAR(30) NOT NULL
+    categoria VARCHAR(30) NOT NULL,
+    usuario VARCHAR(30)
 );
+
+DELIMITER //
+CREATE TRIGGER trinsertcategoria
+BEFORE INSERT ON tbcategorias
+FOR EACH ROW BEGIN
+	SET NEW.usuario = CURRENT_USER();
+END;
+//
+
+DELIMITER ;

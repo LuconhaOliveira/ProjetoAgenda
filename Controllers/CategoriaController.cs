@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.VariableGlobal;
 
 namespace ProjetoAgenda.Controllers
 {
@@ -59,9 +61,9 @@ namespace ProjetoAgenda.Controllers
 
                 conexao.Open();
 
-                string sql = @"SELECT id AS 'Código', 
+                string sql = @$"SELECT id AS 'Código', 
                             categoria AS 'Categoria' 
-                            FROM tbCategorias;";
+                            FROM tbCategorias WHERE usuario LIKE '{UserSession.user}@%';";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sql,conexao);
 

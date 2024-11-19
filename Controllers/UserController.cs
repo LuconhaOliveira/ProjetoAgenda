@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using ProjetoAgenda.Data;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using ProjetoAgenda.VariableGlobal;
 
 namespace ProjetoAgenda.Controllers
 {
@@ -20,7 +22,7 @@ namespace ProjetoAgenda.Controllers
             {
                 // abrir conexao no sql
 
-                MySqlConnection conexao = ConexaoDb.CriarConexao();
+                MySqlConnection conexao = ConexaoDb.CriarConexaoRoot();
 
                 //inserir dados na tabela do sql
                 
@@ -33,7 +35,7 @@ namespace ProjetoAgenda.Controllers
 
                 comando.ExecuteNonQuery();
 
-                sql = $"GRANT SELECT, INSERT, DELETE, UPDATE ON dbagenda.* TO '{usuario}'@'%';";
+                sql = $"GRANT ALL PRIVILEGES ON dbagenda.* TO '{usuario}'@'%';";
 
                 comando = new MySqlCommand(sql , conexao);
 
@@ -94,8 +96,8 @@ namespace ProjetoAgenda.Controllers
                 if(resultado.Read())
                 {
                     conexao.Close();
-                    ConexaoDb.user = usuario;
-                    ConexaoDb.senha = senha;
+                    UserSession.user = usuario;
+                    UserSession.senha = senha;
                     return true;
                 }
                 else
