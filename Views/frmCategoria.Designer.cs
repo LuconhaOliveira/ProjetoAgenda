@@ -34,6 +34,7 @@
             btnCancelar = new Button();
             dgvTabela = new DataGridView();
             btnDeleta = new Button();
+            btnUpdate = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvTabela).BeginInit();
             SuspendLayout();
             // 
@@ -101,6 +102,18 @@
             btnDeleta.UseVisualStyleBackColor = true;
             btnDeleta.Click += btnDeleta_Click;
             // 
+            // btnUpdate
+            // 
+            btnUpdate.Font = new Font("Comic Sans MS", 9F);
+            btnUpdate.Location = new Point(8, 99);
+            btnUpdate.Margin = new Padding(3, 2, 3, 2);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(137, 41);
+            btnUpdate.TabIndex = 11;
+            btnUpdate.Text = "Alterar";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
             // frmCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -108,6 +121,7 @@
             BackColor = Color.FromArgb(192, 192, 255);
             ClientSize = new Size(581, 152);
             Controls.Add(dgvTabela);
+            Controls.Add(btnUpdate);
             Controls.Add(btnDeleta);
             Controls.Add(btnCancelar);
             Controls.Add(btnCadastro);
@@ -128,5 +142,6 @@
         private Button btnCancelar;
         private DataGridView dgvTabela;
         private Button btnDeleta;
+        private Button btnUpdate;
     }
 }

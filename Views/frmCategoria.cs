@@ -50,5 +50,17 @@ namespace ProjetoAgenda.Views
             categoriaController.RemoveCategorias(deletar);
             atualizaDataGrid();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int alterar = Convert.ToInt32(dgvTabela.SelectedRows[0].Cells[0].Value);
+            string categoria = tbxCategoria.Text;
+            bool resultado=categoriaController.UpdateCategoria(alterar, categoria);
+            if (resultado == false)
+            {
+                MessageBox.Show("Não foi possível alterar categoria");
+            }
+            atualizaDataGrid();
+        }
     }
 }
