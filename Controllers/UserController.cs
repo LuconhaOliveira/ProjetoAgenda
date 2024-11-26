@@ -83,21 +83,25 @@ namespace ProjetoAgenda.Controllers
             {
                 MySqlConnection conexao = ConexaoDb.CriarConexao();
 
-                string sql = "SELECT * FROM tbUsuarios WHERE usuario = @usuario AND BINARY SENHA = @senha;";
+                string sql = "SELECT usuario,senha,nome FROM tbUsuarios WHERE usuario = @usuario AND BINARY SENHA = @senha;";
                 conexao.Open();
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
+
 
                 comando.Parameters.AddWithValue("@usuario", usuario);
                 comando.Parameters.AddWithValue("@senha", senha);
 
                 MySqlDataReader resultado = comando.ExecuteReader();
 
+                
+
                 if(resultado.Read())
                 {
+                    UserSession.user = resultado.GetString(0);
+                    UserSession.senha = resultado.GetString(1);
+                    UserSession.nome = resultado.GetString(2);
                     conexao.Close();
-                    UserSession.user = usuario;
-                    UserSession.senha = senha;
                     return true;
                 }
                 else

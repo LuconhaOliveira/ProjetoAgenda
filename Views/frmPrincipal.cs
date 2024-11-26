@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoAgenda.VariableGlobal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,7 @@ namespace ProjetoAgenda.Views
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-
+            lblNome.Text = $"Seja bem-vinde, {UserSession.nome}";
         }
 
         private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
@@ -37,6 +38,12 @@ namespace ProjetoAgenda.Views
         {
             frmUsuario frmUsuario = new frmUsuario();
             frmUsuario.Show();
+        }
+
+        private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgenda frmAgenda = new frmAgenda();
+            frmAgenda.Show();
         }
     }
 }
