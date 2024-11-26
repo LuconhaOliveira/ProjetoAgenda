@@ -22,21 +22,28 @@ namespace ProjetoAgenda.Controllers
                 // Entrar e criar a conexao no SQL, inserindo o comando previsto na variavel sql
                 conexao = ConexaoDb.CriarConexao();
 
-                string sql = "INSERT INTO tbContatos(nome,telefone,categoria) VALUES (@nomeContato, @telefone, @categoria);";
+                string sql = "INSERT INTO tbContatos(nome,telefone,categoria) VALUES(@nomeContato, @telefone, @categoria);";
 
                 conexao.Open();
 
                 // adicionando os parametros e executando
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
-                comando.Parameters.AddWithValue("@nomeCtg", nomeContato);
-                comando.Parameters.AddWithValue("@telfone", telefone);
+                comando.Parameters.AddWithValue("@nomeContato", nomeContato);
+                comando.Parameters.AddWithValue("@telefone", telefone);
                 comando.Parameters.AddWithValue("@categoria", categoria);
 
                 // vendo a quantidade afetada e vendo se foi feito com sucesso ou nao
                 int quantidadeAfetada = comando.ExecuteNonQuery();
 
-                return true;
+                if (quantidadeAfetada > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
 
             }
             catch (Exception erro)
@@ -66,7 +73,7 @@ namespace ProjetoAgenda.Controllers
                             nome AS 'Nome',
                             telefone AS 'Telefone',
                             categoria AS 'Categoria' 
-                            FROM tbContato WHERE usuario LIKE '{UserSession.user}@%';";
+                            FROM tbContatos WHERE usuario LIKE '{UserSession.user}@%';";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conexao);
 
@@ -123,6 +130,8 @@ namespace ProjetoAgenda.Controllers
 
         }
 
+        /*
+         * teste usando um parametro para setar o campo certo no sql
         public bool UpdateContato(int id, string alteracao, string campo)
         {
 
@@ -133,7 +142,7 @@ namespace ProjetoAgenda.Controllers
                 // Entrar e criar a conexao no SQL, inserindo o comando previsto na variavel sql
                 conexao = ConexaoDb.CriarConexao();
 
-                string sql = "UPDATE tbCategorias SET @campo=@alteracao WHERE id=@id;";
+                string sql = "UPDATE tbcontatos SET @campo=@alteracao WHERE id=@id;";
 
                 conexao.Open();
 
@@ -141,6 +150,118 @@ namespace ProjetoAgenda.Controllers
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
                 comando.Parameters.AddWithValue("@campo", campo);
+                comando.Parameters.AddWithValue("@alteracao", alteracao);
+                comando.Parameters.AddWithValue("@id", id);
+
+                // vendo a quantidade afetada e vendo se foi feito com sucesso ou nao
+                int quantidadeAfetada = comando.ExecuteNonQuery();
+
+                return true;
+
+            }
+            catch (Exception erro)
+            {
+                // se der erro mostra tlg
+                MessageBox.Show($"Erro ao efetuar o cadastro:{erro.Message}");
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }*/
+
+        public bool UpdateNome(int id, string alteracao)
+        {
+
+            MySqlConnection conexao = null;
+
+            try
+            {
+                // Entrar e criar a conexao no SQL, inserindo o comando previsto na variavel sql
+                conexao = ConexaoDb.CriarConexao();
+
+                string sql = "UPDATE tbcontatos SET nome=@alteracao WHERE id=@id;";
+
+                conexao.Open();
+
+                // adicionando os parametros e executando
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@alteracao", alteracao);
+                comando.Parameters.AddWithValue("@id", id);
+
+                // vendo a quantidade afetada e vendo se foi feito com sucesso ou nao
+                int quantidadeAfetada = comando.ExecuteNonQuery();
+
+                return true;
+
+            }
+            catch (Exception erro)
+            {
+                // se der erro mostra tlg
+                MessageBox.Show($"Erro ao efetuar o cadastro:{erro.Message}");
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+        public bool UpdateTelefone(int id, string alteracao)
+        {
+
+            MySqlConnection conexao = null;
+
+            try
+            {
+                // Entrar e criar a conexao no SQL, inserindo o comando previsto na variavel sql
+                conexao = ConexaoDb.CriarConexao();
+
+                string sql = "UPDATE tbcontatos SET telefone=@alteracao WHERE id=@id;";
+
+                conexao.Open();
+
+                // adicionando os parametros e executando
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@alteracao", alteracao);
+                comando.Parameters.AddWithValue("@id", id);
+
+                // vendo a quantidade afetada e vendo se foi feito com sucesso ou nao
+                int quantidadeAfetada = comando.ExecuteNonQuery();
+
+                return true;
+
+            }
+            catch (Exception erro)
+            {
+                // se der erro mostra tlg
+                MessageBox.Show($"Erro ao efetuar o cadastro:{erro.Message}");
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+        public bool UpdateCategoria(int id, string alteracao)
+        {
+
+            MySqlConnection conexao = null;
+
+            try
+            {
+                // Entrar e criar a conexao no SQL, inserindo o comando previsto na variavel sql
+                conexao = ConexaoDb.CriarConexao();
+
+                string sql = "UPDATE tbcontatos SET categoria=@alteracao WHERE id=@id;";
+
+                conexao.Open();
+
+                // adicionando os parametros e executando
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
                 comando.Parameters.AddWithValue("@alteracao", alteracao);
                 comando.Parameters.AddWithValue("@id", id);
 

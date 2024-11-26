@@ -52,9 +52,28 @@ namespace ProjetoAgenda.Views
 
         private void btnAltera_Click(object sender, EventArgs e)
         {
-
+            int alterar = Convert.ToInt32(dgvContato.SelectedRows[0].Cells[0].Value);
+            if (txtNome.Text != "")
+            {
+                contactController.UpdateNome(alterar, txtNome.Text);
+            }
+            if (txtTelefone.Text != "")
+            {
+                contactController.UpdateTelefone(alterar, txtTelefone.Text);
+            }
+            if (txtCategoria.Text != "")
+            {
+                contactController.UpdateCategoria(alterar, txtCategoria.Text);
+            }
 
             atualizaDataGrid();
+        }
+
+        private void frmAgenda_Load(object sender, EventArgs e)
+        {
+            CategoriaController categoriaController = new CategoriaController();
+            DataTable tabelaCategoria = categoriaController.GetCategorias();
+            cbxCategoria.DataSource = tabelaCategoria;
         }
     }
 }
