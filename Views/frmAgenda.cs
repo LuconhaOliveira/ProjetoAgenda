@@ -30,7 +30,7 @@ namespace ProjetoAgenda.Views
         {
             string nome = txtNome.Text;
             string telefone = txtTelefone.Text;
-            string categoria = txtCategoria.Text;
+            string categoria = cbxCategoria.Text;
 
             bool resultado = contactController.AddContato(nome, telefone, categoria);
 
@@ -63,7 +63,7 @@ namespace ProjetoAgenda.Views
             }
             if (txtCategoria.Text != "")
             {
-                contactController.UpdateCategoria(alterar, txtCategoria.Text);
+                contactController.UpdateCategoria(alterar, cbxCategoria.Text);
             }
 
             atualizaDataGrid();
@@ -74,6 +74,8 @@ namespace ProjetoAgenda.Views
             CategoriaController categoriaController = new CategoriaController();
             DataTable tabelaCategoria = categoriaController.GetCategorias();
             cbxCategoria.DataSource = tabelaCategoria;
+            cbxCategoria.DisplayMember = "categoria";
         }
+
     }
 }
