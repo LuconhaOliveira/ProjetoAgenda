@@ -61,7 +61,7 @@ namespace ProjetoAgenda.Views
             {
                 contactController.UpdateTelefone(alterar, txtTelefone.Text);
             }
-            if (txtCategoria.Text != "")
+            if (cbxCategoria.Text != "")
             {
                 contactController.UpdateCategoria(alterar, cbxCategoria.Text);
             }
@@ -74,7 +74,7 @@ namespace ProjetoAgenda.Views
             CategoriaController categoriaController = new CategoriaController();
             DataTable tabelaCategoria = categoriaController.GetCategorias();
             cbxCategoria.DataSource = tabelaCategoria;
-            cbxCategoria.DisplayMember = "categoria";
+            cbxCategoria.DisplayMember = "Categoria";
         }
 
     }

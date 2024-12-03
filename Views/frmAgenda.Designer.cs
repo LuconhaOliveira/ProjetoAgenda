@@ -36,7 +36,6 @@
             btnApaga = new Button();
             btnCadastra = new Button();
             btnAltera = new Button();
-            txtCategoria = new TextBox();
             txtTelefone = new TextBox();
             txtNome = new TextBox();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -54,7 +53,6 @@
             groupBox1.Controls.Add(btnApaga);
             groupBox1.Controls.Add(btnCadastra);
             groupBox1.Controls.Add(btnAltera);
-            groupBox1.Controls.Add(txtCategoria);
             groupBox1.Controls.Add(txtTelefone);
             groupBox1.Controls.Add(txtNome);
             groupBox1.Location = new Point(12, 12);
@@ -62,7 +60,7 @@
             groupBox1.Size = new Size(291, 329);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            groupBox1.Text = "Informe os dados";
             // 
             // cbxCategoria
             // 
@@ -129,13 +127,6 @@
             btnAltera.UseVisualStyleBackColor = true;
             btnAltera.Click += btnAltera_Click;
             // 
-            // txtCategoria
-            // 
-            txtCategoria.Location = new Point(11, 243);
-            txtCategoria.Name = "txtCategoria";
-            txtCategoria.Size = new Size(258, 23);
-            txtCategoria.TabIndex = 2;
-            // 
             // txtTelefone
             // 
             txtTelefone.Location = new Point(11, 90);
@@ -186,7 +177,6 @@
         private Button btnApaga;
         private Button btnCadastra;
         private Button btnAltera;
-        private TextBox txtCategoria;
         private TextBox txtTelefone;
         private TextBox txtNome;
         private ComboBox cbxCategoria;

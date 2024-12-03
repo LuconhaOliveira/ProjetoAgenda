@@ -63,7 +63,7 @@ namespace ProjetoAgenda.Controllers
 
                 string sql = @$"SELECT id AS 'Código', 
                             categoria AS 'Categoria' 
-                            FROM tbCategorias WHERE usuario LIKE '{UserSession.user}@%';";
+                            FROM tbCategorias WHERE usuario = USER();";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sql,conexao);
 
