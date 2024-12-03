@@ -45,10 +45,10 @@
             // lblNome
             // 
             lblNome.AutoSize = true;
-            lblNome.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
+            lblNome.Font = new Font("Copperplate Gothic Light", 12F);
             lblNome.Location = new Point(35, 26);
             lblNome.Name = "lblNome";
-            lblNome.Size = new Size(52, 23);
+            lblNome.Size = new Size(55, 17);
             lblNome.TabIndex = 1;
             lblNome.Text = "Nome";
             // 
@@ -73,10 +73,10 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
-            lblUsuario.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
+            lblUsuario.Font = new Font("Copperplate Gothic Light", 12F);
             lblUsuario.Location = new Point(35, 82);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(67, 23);
+            lblUsuario.Size = new Size(77, 17);
             lblUsuario.TabIndex = 3;
             lblUsuario.Text = "Usuário";
             // 
@@ -92,10 +92,10 @@
             // lblTelefone
             // 
             lblTelefone.AutoSize = true;
-            lblTelefone.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
+            lblTelefone.Font = new Font("Copperplate Gothic Light", 12F);
             lblTelefone.Location = new Point(35, 140);
             lblTelefone.Name = "lblTelefone";
-            lblTelefone.Size = new Size(76, 23);
+            lblTelefone.Size = new Size(90, 17);
             lblTelefone.TabIndex = 5;
             lblTelefone.Text = "Telefone";
             // 
@@ -111,10 +111,10 @@
             // lblConfirm
             // 
             lblConfirm.AutoSize = true;
-            lblConfirm.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
+            lblConfirm.Font = new Font("Copperplate Gothic Light", 12F);
             lblConfirm.Location = new Point(35, 251);
             lblConfirm.Name = "lblConfirm";
-            lblConfirm.Size = new Size(143, 23);
+            lblConfirm.Size = new Size(160, 17);
             lblConfirm.TabIndex = 7;
             lblConfirm.Text = "Confirme a senha";
             // 
@@ -130,10 +130,10 @@
             // lblSenha
             // 
             lblSenha.AutoSize = true;
-            lblSenha.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
+            lblSenha.Font = new Font("Copperplate Gothic Light", 12F);
             lblSenha.Location = new Point(35, 194);
             lblSenha.Name = "lblSenha";
-            lblSenha.Size = new Size(56, 23);
+            lblSenha.Size = new Size(62, 17);
             lblSenha.TabIndex = 9;
             lblSenha.Text = "Senha";
             // 

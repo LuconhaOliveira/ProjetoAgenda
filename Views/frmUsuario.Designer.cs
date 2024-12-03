@@ -44,9 +44,10 @@
             // 
             // btnDeletar
             // 
-            btnDeletar.Location = new Point(24, 28);
+            btnDeletar.Location = new Point(21, 21);
+            btnDeletar.Margin = new Padding(3, 2, 3, 2);
             btnDeletar.Name = "btnDeletar";
-            btnDeletar.Size = new Size(94, 29);
+            btnDeletar.Size = new Size(82, 22);
             btnDeletar.TabIndex = 0;
             btnDeletar.Text = "Deletar";
             btnDeletar.UseVisualStyleBackColor = true;
@@ -55,18 +56,20 @@
             // dgvUsers
             // 
             dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsers.Location = new Point(287, 1);
+            dgvUsers.Location = new Point(251, 1);
+            dgvUsers.Margin = new Padding(3, 2, 3, 2);
             dgvUsers.Name = "dgvUsers";
             dgvUsers.RowHeadersWidth = 51;
             dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsers.Size = new Size(354, 383);
+            dgvUsers.Size = new Size(310, 287);
             dgvUsers.TabIndex = 1;
             // 
             // btnSenha
             // 
-            btnSenha.Location = new Point(24, 147);
+            btnSenha.Location = new Point(21, 110);
+            btnSenha.Margin = new Padding(3, 2, 3, 2);
             btnSenha.Name = "btnSenha";
-            btnSenha.Size = new Size(94, 51);
+            btnSenha.Size = new Size(82, 38);
             btnSenha.TabIndex = 2;
             btnSenha.Text = "Alterar senha";
             btnSenha.UseVisualStyleBackColor = true;
@@ -74,25 +77,27 @@
             // 
             // tbxSenha
             // 
-            tbxSenha.Location = new Point(12, 114);
+            tbxSenha.Location = new Point(10, 86);
+            tbxSenha.Margin = new Padding(3, 2, 3, 2);
             tbxSenha.Name = "tbxSenha";
-            tbxSenha.Size = new Size(125, 27);
+            tbxSenha.Size = new Size(110, 23);
             tbxSenha.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(24, 91);
+            label1.Location = new Point(21, 68);
             label1.Name = "label1";
-            label1.Size = new Size(86, 20);
+            label1.Size = new Size(69, 15);
             label1.TabIndex = 4;
             label1.Text = "Nova senha";
             // 
             // btnNome
             // 
-            btnNome.Location = new Point(147, 243);
+            btnNome.Location = new Point(129, 182);
+            btnNome.Margin = new Padding(3, 2, 3, 2);
             btnNome.Name = "btnNome";
-            btnNome.Size = new Size(94, 51);
+            btnNome.Size = new Size(82, 38);
             btnNome.TabIndex = 2;
             btnNome.Text = "Alterar nome";
             btnNome.UseVisualStyleBackColor = true;
@@ -100,25 +105,27 @@
             // 
             // tbxNome
             // 
-            tbxNome.Location = new Point(135, 210);
+            tbxNome.Location = new Point(118, 158);
+            tbxNome.Margin = new Padding(3, 2, 3, 2);
             tbxNome.Name = "tbxNome";
-            tbxNome.Size = new Size(125, 27);
+            tbxNome.Size = new Size(110, 23);
             tbxNome.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(147, 187);
+            label2.Location = new Point(129, 140);
             label2.Name = "label2";
-            label2.Size = new Size(87, 20);
+            label2.Size = new Size(70, 15);
             label2.TabIndex = 4;
             label2.Text = "Novo nome";
             // 
             // btnTel
             // 
-            btnTel.Location = new Point(28, 315);
+            btnTel.Location = new Point(24, 236);
+            btnTel.Margin = new Padding(3, 2, 3, 2);
             btnTel.Name = "btnTel";
-            btnTel.Size = new Size(94, 51);
+            btnTel.Size = new Size(82, 38);
             btnTel.TabIndex = 2;
             btnTel.Text = "Alterar telefone";
             btnTel.UseVisualStyleBackColor = true;
@@ -126,25 +133,26 @@
             // 
             // tbxTel
             // 
-            tbxTel.Location = new Point(16, 282);
+            tbxTel.Location = new Point(14, 212);
+            tbxTel.Margin = new Padding(3, 2, 3, 2);
             tbxTel.Name = "tbxTel";
-            tbxTel.Size = new Size(125, 27);
+            tbxTel.Size = new Size(110, 23);
             tbxTel.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 259);
+            label3.Location = new Point(21, 194);
             label3.Name = "label3";
-            label3.Size = new Size(103, 20);
+            label3.Size = new Size(81, 15);
             label3.TabIndex = 4;
             label3.Text = "Nova telefone";
             // 
             // frmUsuario
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(642, 387);
+            ClientSize = new Size(562, 290);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -156,8 +164,9 @@
             Controls.Add(btnSenha);
             Controls.Add(dgvUsers);
             Controls.Add(btnDeletar);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmUsuario";
-            Text = "frmUsuario";
+            Text = "Usuarios";
             ((System.ComponentModel.ISupportInitialize)dgvUsers).EndInit();
             ResumeLayout(false);
             PerformLayout();

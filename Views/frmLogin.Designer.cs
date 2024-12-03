@@ -112,7 +112,7 @@
             Controls.Add(lblUsuario);
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmLogin";
-            Text = "Form1";
+            Text = "Login";
             ResumeLayout(false);
             PerformLayout();
         }

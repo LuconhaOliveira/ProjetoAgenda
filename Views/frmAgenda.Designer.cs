@@ -158,7 +158,7 @@
             Controls.Add(dgvContato);
             Controls.Add(groupBox1);
             Name = "frmAgenda";
-            Text = "frmAgenda";
+            Text = "Contatos";
             Load += frmAgenda_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

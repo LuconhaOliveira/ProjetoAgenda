@@ -128,7 +128,7 @@
             Controls.Add(tbxCategoria);
             Controls.Add(lblUsuario);
             Name = "frmCategoria";
-            Text = "frmAddCategoria";
+            Text = "Categorias";
             ((System.ComponentModel.ISupportInitialize)dgvTabela).EndInit();
             ResumeLayout(false);
             PerformLayout();
